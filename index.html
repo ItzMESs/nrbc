@@ -385,21 +385,117 @@
       <a href="#projects" class="btn-line">Төслүүд харах →</a>
     </div>
   </div>
-  <div class="h-right">
-    <div class="hbox">
-      <div class="hbox-n">5,000<b>+</b></div>
-      <div class="hbox-l">Километр зам</div>
+  <div style="display:flex;flex-direction:column;gap:0;">
+    <div style="background:#f7f7f5;border:1px solid #f0f0f0;overflow:hidden;margin-bottom:1px;">
+      <svg viewBox="0 0 520 280" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;">
+        <!-- Sky -->
+        <rect width="520" height="280" fill="#f0f4f8"/>
+        <!-- Ground -->
+        <rect y="200" width="520" height="80" fill="#e8e4dc"/>
+        <!-- Road surface -->
+        <rect y="210" width="520" height="50" fill="#6b6b6b"/>
+        <!-- Road center line dashes -->
+        <rect x="0" y="233" width="60" height="4" fill="#f5c842" opacity="0.8"/>
+        <rect x="90" y="233" width="60" height="4" fill="#f5c842" opacity="0.8"/>
+        <rect x="180" y="233" width="60" height="4" fill="#f5c842" opacity="0.8"/>
+        <rect x="270" y="233" width="60" height="4" fill="#f5c842" opacity="0.8"/>
+        <rect x="360" y="233" width="60" height="4" fill="#f5c842" opacity="0.8"/>
+        <rect x="450" y="233" width="70" height="4" fill="#f5c842" opacity="0.8"/>
+        <!-- Road edges -->
+        <rect y="210" width="520" height="3" fill="#888"/>
+        <rect y="257" width="520" height="3" fill="#888"/>
+        <!-- White edge lines -->
+        <rect y="213" width="520" height="2" fill="#fff" opacity="0.4"/>
+        <rect y="252" width="520" height="2" fill="#fff" opacity="0.4"/>
+
+        <!-- Mountains background -->
+        <polygon points="0,200 80,120 160,200" fill="#c8d4e0" opacity="0.5"/>
+        <polygon points="60,200 160,100 260,200" fill="#b8c8d8" opacity="0.5"/>
+        <polygon points="200,200 300,90 400,200" fill="#c0ccd8" opacity="0.6"/>
+        <polygon points="340,200 420,110 520,200" fill="#b8c4d0" opacity="0.5"/>
+
+        <!-- Bridge structure -->
+        <!-- Bridge deck -->
+        <rect x="140" y="175" width="240" height="12" fill="#1B5FA0"/>
+        <!-- Bridge pillars -->
+        <rect x="175" y="175" width="14" height="35" fill="#1B5FA0"/>
+        <rect x="331" y="175" width="14" height="35" fill="#1B5FA0"/>
+        <!-- Bridge cables left tower -->
+        <rect x="200" y="130" width="8" height="57" fill="#1B5FA0"/>
+        <line x1="204" y1="133" x2="160" y2="178" stroke="#C89A2A" stroke-width="2"/>
+        <line x1="204" y1="133" x2="180" y2="178" stroke="#C89A2A" stroke-width="2"/>
+        <line x1="204" y1="133" x2="204" y2="178" stroke="#C89A2A" stroke-width="2"/>
+        <line x1="204" y1="133" x2="228" y2="178" stroke="#C89A2A" stroke-width="2"/>
+        <line x1="204" y1="133" x2="252" y2="178" stroke="#C89A2A" stroke-width="2"/>
+        <!-- Bridge cables right tower -->
+        <rect x="312" y="130" width="8" height="57" fill="#1B5FA0"/>
+        <line x1="316" y1="133" x2="268" y2="178" stroke="#C89A2A" stroke-width="2"/>
+        <line x1="316" y1="133" x2="292" y2="178" stroke="#C89A2A" stroke-width="2"/>
+        <line x1="316" y1="133" x2="316" y2="178" stroke="#C89A2A" stroke-width="2"/>
+        <line x1="316" y1="133" x2="340" y2="178" stroke="#C89A2A" stroke-width="2"/>
+        <line x1="316" y1="133" x2="360" y2="178" stroke="#C89A2A" stroke-width="2"/>
+        <!-- Tower tops -->
+        <rect x="197" y="124" width="14" height="8" fill="#C89A2A"/>
+        <rect x="309" y="124" width="14" height="8" fill="#C89A2A"/>
+
+        <!-- Excavator left -->
+        <rect x="30" y="195" width="70" height="18" rx="2" fill="#C89A2A"/>
+        <rect x="35" y="182" width="30" height="15" rx="1" fill="#C89A2A"/>
+        <rect x="38" y="185" width="12" height="8" fill="#1B5FA0" opacity="0.6"/>
+        <!-- Excavator arm -->
+        <line x1="65" y1="185" x2="90" y2="165" stroke="#888" stroke-width="4" stroke-linecap="round"/>
+        <line x1="90" y1="165" x2="105" y2="185" stroke="#888" stroke-width="3" stroke-linecap="round"/>
+        <!-- Excavator wheels -->
+        <circle cx="45" cy="213" r="6" fill="#555"/>
+        <circle cx="65" cy="213" r="6" fill="#555"/>
+        <circle cx="85" cy="213" r="6" fill="#555"/>
+
+        <!-- Crane right -->
+        <rect x="430" y="150" width="10" height="60" fill="#888"/>
+        <rect x="420" y="150" width="70" height="6" fill="#888"/>
+        <line x1="460" y1="150" x2="430" y2="156" stroke="#C89A2A" stroke-width="2"/>
+        <line x1="490" y1="156" x2="490" y2="185" stroke="#888" stroke-width="2"/>
+        <rect x="483" y="183" width="14" height="10" rx="1" fill="#1B5FA0"/>
+        <!-- Crane base -->
+        <rect x="440" y="200" width="30" height="12" rx="1" fill="#888"/>
+        <circle cx="447" cy="215" r="5" fill="#555"/>
+        <circle cx="463" cy="215" r="5" fill="#555"/>
+
+        <!-- Road markings perspective lines -->
+        <line x1="220" y1="260" x2="260" y2="212" stroke="#fff" stroke-width="1" opacity="0.15"/>
+        <line x1="300" y1="260" x2="260" y2="212" stroke="#fff" stroke-width="1" opacity="0.15"/>
+
+        <!-- Workers silhouettes -->
+        <circle cx="390" cy="196" r="5" fill="#333"/>
+        <rect x="387" y="201" width="6" height="10" fill="#1B5FA0"/>
+        <circle cx="410" cy="194" r="5" fill="#333"/>
+        <rect x="407" y="199" width="6" height="10" fill="#888"/>
+
+        <!-- Hard hats -->
+        <ellipse cx="390" cy="193" rx="6" ry="3" fill="#C89A2A"/>
+        <ellipse cx="410" cy="191" rx="6" ry="3" fill="#C89A2A"/>
+
+        <!-- NRBC watermark subtle -->
+        <text x="260" y="270" text-anchor="middle" font-size="9" fill="#999" font-family="Inter,sans-serif" letter-spacing="3">NRBC LLC · 2018</text>
+      </svg>
     </div>
-    <div class="hbox">
-      <div class="hbox-n">50<b>+</b></div>
-      <div class="hbox-l">Мэргэжилтэн ажилтан</div>
-    </div>
-    <div class="hbox hbox-wide">
-      <div>
-        <div class="hbox-n">6<b>жил</b></div>
-        <div class="hbox-l">Туршлага</div>
+    <!-- Stats row below illustration -->
+    <div class="h-right" style="margin:0;">
+      <div class="hbox">
+        <div class="hbox-n">5,000<b>+</b></div>
+        <div class="hbox-l">Километр зам</div>
       </div>
-      <p>2018 оноос хойш Монгол улсын замын дэд бүтцэд хувь нэмрээ оруулж байна.</p>
+      <div class="hbox">
+        <div class="hbox-n">50<b>+</b></div>
+        <div class="hbox-l">Мэргэжилтэн ажилтан</div>
+      </div>
+      <div class="hbox hbox-wide">
+        <div>
+          <div class="hbox-n">6<b>жил</b></div>
+          <div class="hbox-l">Туршлага</div>
+        </div>
+        <p>2018 оноос хойш Монгол улсын замын дэд бүтцэд хувь нэмрээ оруулж байна.</p>
+      </div>
     </div>
   </div>
 </section>
