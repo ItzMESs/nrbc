@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>National Road Bridge Construction ХХК</title>
+<meta name="description" content="Монгол улсын замын дэд бүтцийг бүтээж буй тэргүүлэх инженерийн компани. 25 жилийн туршлага, 1,200 км зам.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --blue: #1B5FA0;
+    --gold: #C89A2A;
+    --dark: #111;
+    --gray: #777;
+    --light: #f7f7f5;
+    --border: #f0f0f0;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #fff;
+    color: #111;
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  /* ── NAV ── */
+  nav {
+    height: 68px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 48px;
+    border-bottom: 1px solid var(--border);
+    background: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 99;
+  }
+
+  .nl { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .nl-t { line-height: 1.25; }
+  .nl-t b { display: block; font-size: 13px; font-weight: 600; color: #111; letter-spacing: .2px; }
+  .nl-t span { font-size: 11px; color: #999; letter-spacing: .5px; }
+
+  nav ul { list-style: none; display: flex; gap: 28px; align-items: center; }
+  nav ul li a {
+    color: #555; text-decoration: none; font-size: 13px;
+    font-weight: 500; transition: color .15s;
+  }
+  nav ul li a:hover { color: #111; }
+
+  .nbtn {
+    background: #111 !important; color: #fff !important;
+    padding: 9px 22px; font-size: 12px; font-weight: 600; letter-spacing: .3px;
+  }
+  .nbtn:hover { background: #333 !important; }
+
+  .nav-toggle { display: none; background: none; border: none; cursor: pointer; font-size: 22px; color: #111; }
+
+  /* ── HERO ── */
+  .hero {
+    padding: 96px 48px 80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .h-tag {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 11px; font-weight: 600; color: #999;
+    letter-spacing: 1px; text-transform: uppercase; margin-bottom: 24px;
+  }
+  .h-tag::before { content: ''; width: 24px; height: 1px; background: #ccc; }
+
+  .hero h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 56px; line-height: 1.1; color: #111;
+    margin-bottom: 20px; font-weight: 400;
+  }
+  .hero h1 i { font-style: italic; color: var(--blue); }
+
+  .hero p { font-size: 15px; color: #777; line-height: 1.8; max-width: 380px; margin-bottom: 36px; }
+
+  .hbtns { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
+
+  .btn-dark {
+    background: #111; color: #fff; border: none;
+    padding: 13px 28px; font-size: 13px; font-weight: 500;
+    cursor: pointer; letter-spacing: .2px; transition: background .15s; text-decoration: none;
+    display: inline-block;
+  }
+  .btn-dark:hover { background: #333; }
+
+  .btn-line {
+    background: none; color: #111; border: 1px solid #ddd;
+    padding: 13px 28px; font-size: 13px; font-weight: 500;
+    cursor: pointer; transition: border-color .15s; text-decoration: none;
+    display: inline-block;
+  }
+  .btn-line:hover { border-color: #111; }
+
+  .h-right {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: #f0f0f0;
+    border: 1px solid #f0f0f0;
+  }
+  .hbox { background: #fff; padding: 28px; display: flex; flex-direction: column; gap: 4px; }
+  .hbox-n { font-size: 40px; font-weight: 300; color: #111; letter-spacing: -2px; line-height: 1; }
+  .hbox-n b { font-weight: 600; font-size: 22px; color: var(--blue); }
+  .hbox-l { font-size: 12px; color: #aaa; letter-spacing: .3px; }
+  .hbox-wide {
+    grid-column: span 2; border-top: 1px solid #f0f0f0;
+    flex-direction: row; align-items: center; gap: 20px;
+  }
+  .hbox-wide .hbox-n { font-size: 32px; }
+  .hbox-wide p { font-size: 13px; color: #bbb; line-height: 1.5; }
+
+  /* ── TICKER ── */
+  .ticker-strip {
+    background: var(--light);
+    border-top: 1px solid #efefed; border-bottom: 1px solid #efefed;
+    padding: 14px 48px;
+    display: flex; align-items: center; gap: 32px; overflow: hidden;
+  }
+  .tk-label {
+    font-size: 10px; font-weight: 700; letter-spacing: 2px; color: #bbb;
+    white-space: nowrap; padding-right: 28px; border-right: 1px solid #e5e5e5; flex-shrink: 0;
+  }
+  .tk-items { display: flex; gap: 36px; overflow: hidden; flex-wrap: wrap; }
+  .tki {
+    font-size: 12px; color: #999; display: flex;
+    align-items: center; gap: 8px; white-space: nowrap;
+  }
+  .tki::before { content: ''; width: 4px; height: 4px; background: var(--blue); border-radius: 50%; flex-shrink: 0; }
+
+  /* ── SERVICES ── */
+  .svc { padding: 80px 48px; border-bottom: 1px solid var(--border); }
+
+  .sh {
+    display: grid; grid-template-columns: 1fr 2fr;
+    gap: 48px; margin-bottom: 56px; align-items: end;
+  }
+  .sh-l .ey { font-size: 11px; font-weight: 600; color: #aaa; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 12px; }
+  .sh-l h2 { font-family: 'DM Serif Display', serif; font-size: 42px; font-weight: 400; color: #111; line-height: 1.1; }
+  .sh-r { font-size: 14px; color: #888; line-height: 1.8; max-width: 420px; align-self: end; }
+
+  .sg {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    border-top: 1px solid var(--border);
+  }
+  .sc {
+    padding: 32px 28px 28px;
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    cursor: default; transition: background .15s;
+  }
+  .sc:hover { background: #fafaf9; }
+  .sc:nth-child(3n) { border-right: none; }
+  .sc-no { font-size: 11px; color: #ddd; font-weight: 500; letter-spacing: 1px; margin-bottom: 16px; }
+  .sc h3 { font-size: 15px; font-weight: 600; color: #111; margin-bottom: 8px; line-height: 1.3; }
+  .sc p { font-size: 13px; color: #999; line-height: 1.7; }
+  .sc-link {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 12px; color: var(--blue); font-weight: 500; margin-top: 14px;
+    cursor: pointer; text-decoration: none;
+  }
+  .sc-link i { font-size: 14px; transition: transform .15s; }
+  .sc:hover .sc-link i { transform: translateX(3px); }
+
+  /* ── PROJECTS ── */
+  .proj { background: var(--light); padding: 80px 48px; border-top: 1px solid #efefed; border-bottom: 1px solid #efefed; }
+
+  .pg { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+
+  .pc {
+    background: #fff; border: 1px solid #efefed;
+    overflow: hidden; cursor: default; transition: border-color .15s;
+  }
+  .pc:hover { border-color: #ccc; }
+  .pc-top {
+    height: 44px; background: #111;
+    display: flex; align-items: center; justify-content: space-between; padding: 0 16px;
+  }
+  .pc-top-tag { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,.4); }
+  .pc-top-yr { font-size: 11px; color: rgba(255,255,255,.3); }
+  .pc-visual {
+    height: 120px; background: var(--light);
+    border-bottom: 1px solid #efefed;
+    display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+  }
+  .pc-grid {
+    position: absolute; inset: 0;
+    background:
+      repeating-linear-gradient(0deg, transparent, transparent 19px, #efefed 19px, #efefed 20px),
+      repeating-linear-gradient(90deg, transparent, transparent 19px, #efefed 19px, #efefed 20px);
+  }
+  .pc-visual i { font-size: 32px; color: #ddd; position: relative; z-index: 1; }
+  .pc-body { padding: 18px 18px 20px; }
+  .pc-body h4 { font-size: 14px; font-weight: 600; color: #111; margin-bottom: 4px; }
+  .pc-body p { font-size: 12px; color: #bbb; }
+  .pc-meta { display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap; }
+  .pm {
+    font-size: 10px; font-weight: 600; color: #555;
+    background: #f5f5f5; border: 1px solid #ebebeb; padding: 3px 9px; letter-spacing: .3px;
+  }
+
+  /* ── NUMBERS ── */
+  .nums {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+  }
+  .nb { padding: 40px 48px; border-right: 1px solid var(--border); }
+  .nb:last-child { border-right: none; }
+  .nb-n { font-family: 'DM Serif Display', serif; font-size: 52px; font-weight: 400; color: #111; line-height: 1; }
+  .nb-n sup { font-size: 22px; color: var(--blue); vertical-align: super; }
+  .nb-l { font-size: 12px; color: #bbb; letter-spacing: .5px; margin-top: 6px; text-transform: uppercase; }
+
+  /* ── WHY + CERT ── */
+  .why {
+    padding: 80px 48px;
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 80px; border-bottom: 1px solid var(--border);
+  }
+  .why-l .ey { font-size: 11px; font-weight: 600; color: #aaa; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 12px; }
+  .why-l h2 { font-family: 'DM Serif Display', serif; font-size: 42px; font-weight: 400; color: #111; line-height: 1.1; margin-bottom: 36px; }
+  .wi { display: grid; grid-template-columns: auto 1fr; gap: 20px; padding: 20px 0; border-bottom: 1px solid #f5f5f5; align-items: start; }
+  .wi-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--blue); margin-top: 6px; flex-shrink: 0; }
+  .wi strong { display: block; font-size: 14px; font-weight: 600; color: #111; margin-bottom: 4px; }
+  .wi span { font-size: 13px; color: #999; line-height: 1.7; }
+
+  .cert-r .ey { font-size: 11px; font-weight: 600; color: #aaa; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 12px; }
+  .cert-r h2 { font-family: 'DM Serif Display', serif; font-size: 42px; font-weight: 400; color: #111; line-height: 1.1; margin-bottom: 28px; }
+  .cb { border: 1px solid var(--border); padding: 20px; margin-bottom: 12px; }
+  .cb h5 { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #ccc; margin-bottom: 12px; }
+  .ctgs { display: flex; flex-wrap: wrap; gap: 6px; }
+  .ct { font-size: 12px; color: #555; background: #fafafa; border: 1px solid #efefef; padding: 5px 12px; font-weight: 500; }
+
+  /* ── CONTACT ── */
+  .contact { padding: 80px 48px; border-bottom: 1px solid var(--border); }
+  .contact .sh { margin-bottom: 48px; }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+  .contact-info { display: flex; flex-direction: column; gap: 24px; }
+  .ci-item { display: flex; gap: 16px; align-items: flex-start; }
+  .ci-icon { width: 36px; height: 36px; background: var(--light); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 16px; color: var(--blue); }
+  .ci-label { font-size: 11px; font-weight: 600; color: #bbb; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 3px; }
+  .ci-val { font-size: 14px; font-weight: 500; color: #111; }
+
+  .contact-form { display: flex; flex-direction: column; gap: 14px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .form-group { display: flex; flex-direction: column; gap: 6px; }
+  .form-group label { font-size: 12px; font-weight: 500; color: #888; letter-spacing: .3px; }
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    border: 1px solid #e5e5e5; padding: 11px 14px;
+    font-size: 14px; font-family: 'Inter', sans-serif;
+    color: #111; background: #fff; outline: none;
+    transition: border-color .15s;
+    width: 100%;
+  }
+  .form-group input:focus,
+  .form-group textarea:focus,
+  .form-group select:focus { border-color: var(--blue); }
+  .form-group textarea { resize: vertical; min-height: 100px; }
+
+  /* ── CTA ── */
+  .cta {
+    display: grid; grid-template-columns: 1fr auto;
+    gap: 48px; align-items: center;
+    padding: 72px 48px; background: #111;
+  }
+  .cta h2 { font-family: 'DM Serif Display', serif; font-size: 46px; font-weight: 400; color: #fff; line-height: 1.1; }
+  .cta h2 i { font-style: italic; color: #5b9fd6; }
+  .cta p { font-size: 14px; color: rgba(255,255,255,.4); margin-top: 10px; max-width: 400px; line-height: 1.8; }
+  .cta-r { display: flex; flex-direction: column; gap: 8px; align-items: flex-end; flex-shrink: 0; }
+  .cta-info { text-align: right; margin-bottom: 4px; }
+  .cta-info span { font-size: 11px; color: rgba(255,255,255,.25); display: block; letter-spacing: .5px; text-transform: uppercase; }
+  .cta-info b { font-size: 17px; font-weight: 500; color: rgba(255,255,255,.7); }
+  .cta-btns { display: flex; gap: 10px; margin-top: 12px; flex-wrap: wrap; }
+  .btn-w { background: #fff; color: #111; border: none; padding: 13px 28px; font-size: 13px; font-weight: 600; cursor: pointer; transition: background .15s; text-decoration: none; display: inline-block; }
+  .btn-w:hover { background: #f0f0f0; }
+  .btn-wo { background: none; color: rgba(255,255,255,.5); border: 1px solid rgba(255,255,255,.15); padding: 13px 24px; font-size: 13px; cursor: pointer; transition: color .15s, border-color .15s; text-decoration: none; display: inline-block; }
+  .btn-wo:hover { color: #fff; border-color: rgba(255,255,255,.4); }
+
+  /* ── FOOTER ── */
+  footer { background: #0a0a0a; padding: 48px 48px 24px; }
+  .fg {
+    display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr;
+    gap: 40px; padding-bottom: 36px;
+    border-bottom: 1px solid rgba(255,255,255,.06); margin-bottom: 20px;
+  }
+  .flogo { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+  .flogo b { font-size: 13px; font-weight: 600; color: #fff; line-height: 1.3; }
+  .fdesc { font-size: 12px; color: rgba(255,255,255,.3); line-height: 1.8; max-width: 210px; }
+  footer h5 { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,.25); margin-bottom: 14px; }
+  footer ul { list-style: none; }
+  footer ul li { margin-bottom: 9px; }
+  footer ul li a { font-size: 13px; color: rgba(255,255,255,.4); text-decoration: none; transition: color .15s; }
+  footer ul li a:hover { color: rgba(255,255,255,.8); }
+  .fbot { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+  .fbot p { font-size: 11px; color: rgba(255,255,255,.2); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 0 24px; }
+    nav ul { display: none; }
+    nav ul.open { display: flex; flex-direction: column; position: absolute; top: 68px; left: 0; right: 0; background: #fff; border-bottom: 1px solid var(--border); padding: 16px 24px; gap: 16px; z-index: 99; }
+    .nav-toggle { display: block; }
+    .hero { grid-template-columns: 1fr; padding: 56px 24px 48px; gap: 40px; }
+    .hero h1 { font-size: 40px; }
+    .ticker-strip { padding: 14px 24px; }
+    .svc, .proj, .contact { padding: 56px 24px; }
+    .sh { grid-template-columns: 1fr; gap: 16px; margin-bottom: 36px; }
+    .sg { grid-template-columns: 1fr; }
+    .sc:nth-child(3n) { border-right: 1px solid var(--border); }
+    .sc { border-right: none !important; }
+    .pg { grid-template-columns: 1fr; }
+    .nums { grid-template-columns: 1fr 1fr; }
+    .nb:nth-child(2n) { border-right: none; }
+    .nb { padding: 28px 24px; }
+    .why { grid-template-columns: 1fr; padding: 56px 24px; gap: 40px; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    .cta { grid-template-columns: 1fr; padding: 56px 24px; gap: 32px; }
+    .cta-r { align-items: flex-start; }
+    .fg { grid-template-columns: 1fr 1fr; padding: 0 24px 32px; }
+    footer { padding: 40px 24px 20px; }
+    .fbot { padding: 0 0; }
+  }
+
+  @media (max-width: 600px) {
+    .hero h1 { font-size: 32px; }
+    .h-right { grid-template-columns: 1fr; }
+    .hbox-wide { grid-column: span 1; flex-direction: column; }
+    .nums { grid-template-columns: 1fr 1fr; }
+    .fg { grid-template-columns: 1fr; }
+    .cta h2 { font-size: 34px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nl" href="#">
+    <svg width="34" height="34" viewBox="0 0 44 44" fill="none">
+      <circle cx="22" cy="22" r="19" stroke="#1B5FA0" stroke-width="2.5" fill="none"/>
+      <rect x="15.5" y="11" width="5" height="21" rx="1" fill="#1B5FA0"/>
+      <rect x="23" y="15" width="5" height="17" rx="1" fill="#C89A2A"/>
+      <path d="M13 33 Q22 27 31 33" stroke="#1B5FA0" stroke-width="2" fill="none" stroke-linecap="round"/>
+    </svg>
+    <div class="nl-t">
+      <b>National Road Bridge Construction</b>
+      <span>ХХК · 1999 оноос</span>
+    </div>
+  </a>
+  <button class="nav-toggle" onclick="document.querySelector('nav ul').classList.toggle('open')" aria-label="Цэс">
+    <i class="ti ti-menu-2"></i>
+  </button>
+  <ul>
+    <li><a href="#services">Үйлчилгээ</a></li>
+    <li><a href="#projects">Төслүүд</a></li>
+    <li><a href="#about">Бидний тухай</a></li>
+    <li><a href="#contact">Мэдээ</a></li>
+    <li><a href="#contact" class="nbtn">Холбоо барих</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div>
+    <div class="h-tag">Монгол улсын тэргүүлэх компани</div>
+    <h1>Зам, Гүүр,<br><i>Барилга</i></h1>
+    <p>Замын дэд бүтцийн иж бүрэн шийдэл. Засвар, шинэ барилга, гүүрний ажлыг мэргэжлийн түвшинд гүйцэтгэнэ.</p>
+    <div class="hbtns">
+      <a href="#contact" class="btn-dark">Санал хүсэлт</a>
+      <a href="#projects" class="btn-line">Төслүүд харах →</a>
+    </div>
+  </div>
+  <div class="h-right">
+    <div class="hbox">
+      <div class="hbox-n">1,200<b>+</b></div>
+      <div class="hbox-l">Километр зам</div>
+    </div>
+    <div class="hbox">
+      <div class="hbox-n">180<b>+</b></div>
+      <div class="hbox-l">Гүйцэтгэсэн төсөл</div>
+    </div>
+    <div class="hbox hbox-wide">
+      <div>
+        <div class="hbox-n">25<b>жил</b></div>
+        <div class="hbox-l">Туршлага</div>
+      </div>
+      <p>1999 оноос хойш Монгол улсын замын дэд бүтцэд хувь нэмрээ оруулж байна.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker-strip">
+  <div class="tk-label">Одоогийн ажлууд</div>
+  <div class="tk-items">
+    <span class="tki">УБ–Дархан · 120 км засвар явагдаж байна</span>
+    <span class="tki">Туул гол · Гүүр шинэчлэл</span>
+    <span class="tki">Баянгол · 18 км асфальт</span>
+    <span class="tki">Өмнөговь · Шинэ зам барилга</span>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="svc" id="services">
+  <div class="sh">
+    <div class="sh-l">
+      <div class="ey">Үйлчилгээ</div>
+      <h2>Бидний<br>чиглэлүүд</h2>
+    </div>
+    <div class="sh-r">Замын засвараас эхлэн гүүрний барилга хүртэл — дэд бүтцийн бүх шийдлийг нэг дороос.</div>
+  </div>
+  <div class="sg">
+    <div class="sc">
+      <div class="sc-no">01</div>
+      <h3>Шинэ зам барилга</h3>
+      <p>Хот хоорондын болон хотын доторхи авто замын иж бүрэн барилга.</p>
+      <a href="#contact" class="sc-link">Дэлгэрэнгүй <i class="ti ti-arrow-right"></i></a>
+    </div>
+    <div class="sc">
+      <div class="sc-no">02</div>
+      <h3>Замын засвар</h3>
+      <p>Эвдэрсэн зам, талбайн хурдан шуурхай засвар, нөхөн сэргээлт.</p>
+      <a href="#contact" class="sc-link">Дэлгэрэнгүй <i class="ti ti-arrow-right"></i></a>
+    </div>
+    <div class="sc">
+      <div class="sc-no">03</div>
+      <h3>Гүүр, усан гарц</h3>
+      <p>Техникийн нарийн тооцоолол бүхий гүүр, усан гарцын байгууламж.</p>
+      <a href="#contact" class="sc-link">Дэлгэрэнгүй <i class="ti ti-arrow-right"></i></a>
+    </div>
+    <div class="sc">
+      <div class="sc-no">04</div>
+      <h3>Асфальт хийц</h3>
+      <p>MNS болон ISO стандартад нийцсэн асфальтон хольц, хийц.</p>
+      <a href="#contact" class="sc-link">Дэлгэрэнгүй <i class="ti ti-arrow-right"></i></a>
+    </div>
+    <div class="sc">
+      <div class="sc-no">05</div>
+      <h3>Замын тэмдэглэл</h3>
+      <p>Замын шугам тэмдэглэл, тэмдэг хаяг, аюулгүй байдлын байгууламж.</p>
+      <a href="#contact" class="sc-link">Дэлгэрэнгүй <i class="ti ti-arrow-right"></i></a>
+    </div>
+    <div class="sc">
+      <div class="sc-no">06</div>
+      <h3>Зөвлөх үйлчилгээ</h3>
+      <p>Зураг төсөл, ТЭЗ, хяналт шалгалт болон мэргэжлийн зөвлөгөө.</p>
+      <a href="#contact" class="sc-link">Дэлгэрэнгүй <i class="ti ti-arrow-right"></i></a>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="proj" id="projects">
+  <div class="sh" style="margin-bottom:40px">
+    <div class="sh-l">
+      <div class="ey">Ажлын жишээ</div>
+      <h2>Сүүлийн<br>төслүүд</h2>
+    </div>
+    <div class="sh-r">Амжилттай хэрэгжүүлсэн зарим томоохон төслүүд.</div>
+  </div>
+  <div class="pg">
+    <div class="pc">
+      <div class="pc-top"><span class="pc-top-tag">Авто зам</span><span class="pc-top-yr">2024</span></div>
+      <div class="pc-visual"><div class="pc-grid"></div><i class="ti ti-road"></i></div>
+      <div class="pc-body">
+        <h4>УБ–Дархан засвар</h4>
+        <p>120 км · Дорнод аймаг</p>
+        <div class="pc-meta"><span class="pm">₮48 тэрбум</span><span class="pm">120 км</span></div>
+      </div>
+    </div>
+    <div class="pc">
+      <div class="pc-top"><span class="pc-top-tag">Гүүр</span><span class="pc-top-yr">2023</span></div>
+      <div class="pc-visual"><div class="pc-grid"></div><i class="ti ti-building-bridge"></i></div>
+      <div class="pc-body">
+        <h4>Туул голын гүүр</h4>
+        <p>240 м · Улаанбаатар</p>
+        <div class="pc-meta"><span class="pm">₮22 тэрбум</span><span class="pm">240 м</span></div>
+      </div>
+    </div>
+    <div class="pc">
+      <div class="pc-top"><span class="pc-top-tag">Хотын зам</span><span class="pc-top-yr">2023</span></div>
+      <div class="pc-visual"><div class="pc-grid"></div><i class="ti ti-layers-subtract"></i></div>
+      <div class="pc-body">
+        <h4>Баянгол дүүрэг</h4>
+        <p>18 км · Улаанбаатар</p>
+        <div class="pc-meta"><span class="pm">₮12 тэрбум</span><span class="pm">18 км</span></div>
+      </div>
+    </div>
+    <div class="pc">
+      <div class="pc-top"><span class="pc-top-tag">Шинэ зам</span><span class="pc-top-yr">2022</span></div>
+      <div class="pc-visual"><div class="pc-grid"></div><i class="ti ti-crane"></i></div>
+      <div class="pc-body">
+        <h4>Өмнөговь аймгийн шинэ зам</h4>
+        <p>85 км · Өмнөговь аймаг</p>
+        <div class="pc-meta"><span class="pm">₮36 тэрбум</span><span class="pm">85 км</span></div>
+      </div>
+    </div>
+    <div class="pc">
+      <div class="pc-top"><span class="pc-top-tag">Орон нутаг</span><span class="pc-top-yr">2022</span></div>
+      <div class="pc-visual"><div class="pc-grid"></div><i class="ti ti-road"></i></div>
+      <div class="pc-body">
+        <h4>Эрдэнэт–Булган засвар</h4>
+        <p>67 км · Орхон аймаг</p>
+        <div class="pc-meta"><span class="pm">₮18 тэрбум</span><span class="pm">67 км</span></div>
+      </div>
+    </div>
+    <div class="pc">
+      <div class="pc-top"><span class="pc-top-tag">Гүүр</span><span class="pc-top-yr">2021</span></div>
+      <div class="pc-visual"><div class="pc-grid"></div><i class="ti ti-building-bridge"></i></div>
+      <div class="pc-body">
+        <h4>Хэрлэн голын гүүр</h4>
+        <p>180 м · Хэнтий аймаг</p>
+        <div class="pc-meta"><span class="pm">₮15 тэрбум</span><span class="pm">180 м</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NUMBERS -->
+<div class="nums" id="about">
+  <div class="nb">
+    <div class="nb-n">25<sup>+</sup></div>
+    <div class="nb-l">Жилийн туршлага</div>
+  </div>
+  <div class="nb">
+    <div class="nb-n">1,200<sup>км</sup></div>
+    <div class="nb-l">Баригдсан зам</div>
+  </div>
+  <div class="nb">
+    <div class="nb-n">98<sup>%</sup></div>
+    <div class="nb-l">Хугацаанд биелэлт</div>
+  </div>
+  <div class="nb">
+    <div class="nb-n">180<sup>+</sup></div>
+    <div class="nb-l">Гүйцэтгэсэн төсөл</div>
+  </div>
+</div>
+
+<!-- WHY + CERT -->
+<section class="why">
+  <div class="why-l">
+    <div class="ey">Яагаад NRBC</div>
+    <h2>Бидний<br>давуу тал</h2>
+    <div class="wi">
+      <div class="wi-dot"></div>
+      <div><strong>Орчин үеийн техник парк</strong><span>Импортын шинэ машин механизм, ажлын хурд болон чанарыг нэгэн зэрэг баталгаажуулна.</span></div>
+    </div>
+    <div class="wi">
+      <div class="wi-dot"></div>
+      <div><strong>Мэргэжлийн инженер баг</strong><span>15+ жил туршлагатай зам, гүүрний инженерүүд болон мэргэшсэн ажилчдын баг.</span></div>
+    </div>
+    <div class="wi">
+      <div class="wi-dot"></div>
+      <div><strong>Хугацаанд нь 98%</strong><span>Гэрээний хугацааг биелүүлэх нь бидний гол зарчим.</span></div>
+    </div>
+    <div class="wi">
+      <div class="wi-dot"></div>
+      <div><strong>ISO чанарын баталгаа</strong><span>ISO 9001:2015 стандартын дагуу, гарантит хугацаа олгоно.</span></div>
+    </div>
+  </div>
+  <div class="cert-r">
+    <div class="ey">Гэрчилгээ</div>
+    <h2>Зөвшөөрөл<br>ба лиценз</h2>
+    <div class="cb">
+      <h5>Олон улсын стандарт</h5>
+      <div class="ctgs">
+        <span class="ct">ISO 9001:2015</span>
+        <span class="ct">ISO 14001:2015</span>
+        <span class="ct">ISO 45001:2018</span>
+        <span class="ct">MNS 6947:2020</span>
+      </div>
+    </div>
+    <div class="cb">
+      <h5>Улсын зөвшөөрөл</h5>
+      <div class="ctgs">
+        <span class="ct">ЗТБХБЯ · A зэрэглэл</span>
+        <span class="ct">Авто замын газар</span>
+        <span class="ct">БХБЯ бүртгэл</span>
+      </div>
+    </div>
+    <div class="cb">
+      <h5>Хамтрагчид</h5>
+      <div class="ctgs">
+        <span class="ct">Нийслэлийн ЗДТГ</span>
+        <span class="ct">Аймгийн ЗДТГ</span>
+        <span class="ct">УБТЗ</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT FORM -->
+<section class="contact" id="contact">
+  <div class="sh">
+    <div class="sh-l">
+      <div class="ey">Холбоо барих</div>
+      <h2>Санал<br>хүсэлт</h2>
+    </div>
+    <div class="sh-r">Замын засвар, барилгын тооцоо болон зөвлөгөөг үнэ төлбөргүй авна уу.</div>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-info">
+      <div class="ci-item">
+        <div class="ci-icon"><i class="ti ti-phone"></i></div>
+        <div>
+          <div class="ci-label">Шууд утас</div>
+          <div class="ci-val">+976 9900-0000</div>
+        </div>
+      </div>
+      <div class="ci-item">
+        <div class="ci-icon"><i class="ti ti-mail"></i></div>
+        <div>
+          <div class="ci-label">Цахим шуудан</div>
+          <div class="ci-val">info@nrbc.mn</div>
+        </div>
+      </div>
+      <div class="ci-item">
+        <div class="ci-icon"><i class="ti ti-map-pin"></i></div>
+        <div>
+          <div class="ci-label">Хаяг</div>
+          <div class="ci-val">Улаанбаатар, СБД, ...-р хороо</div>
+        </div>
+      </div>
+      <div class="ci-item">
+        <div class="ci-icon"><i class="ti ti-clock"></i></div>
+        <div>
+          <div class="ci-label">Ажлын цаг</div>
+          <div class="ci-val">Даваа–Баасан: 09:00–18:00</div>
+        </div>
+      </div>
+    </div>
+    <form class="contact-form" onsubmit="handleSubmit(event)">
+      <div class="form-row">
+        <div class="form-group">
+          <label>Овог нэр</label>
+          <input type="text" placeholder="Таны нэр" required>
+        </div>
+        <div class="form-group">
+          <label>Утас</label>
+          <input type="tel" placeholder="+976">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Цахим шуудан</label>
+        <input type="email" placeholder="example@mail.com">
+      </div>
+      <div class="form-group">
+        <label>Үйлчилгээний төрөл</label>
+        <select>
+          <option value="">Сонгоно уу</option>
+          <option>Шинэ зам барилга</option>
+          <option>Замын засвар</option>
+          <option>Гүүр, усан гарц</option>
+          <option>Асфальт хийц</option>
+          <option>Замын тэмдэглэл</option>
+          <option>Зөвлөх үйлчилгээ</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Санал хүсэлт</label>
+        <textarea placeholder="Ажлын чиглэл, байршил болон бусад мэдээллийг бичнэ үү..."></textarea>
+      </div>
+      <button type="submit" class="btn-dark" style="width:100%;padding:14px;font-size:14px;font-weight:600;cursor:pointer">Илгээх</button>
+      <div id="form-msg" style="display:none;padding:12px 14px;background:#f0f9f0;border:1px solid #c8e6c9;font-size:13px;color:#2e7d32"></div>
+    </form>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta">
+  <div>
+    <h2>Таны төслийг<br><i>хэрэгжүүлье</i></h2>
+    <p>Замын засвар, барилгын тооцоо болон зөвлөгөөг үнэ төлбөргүй авна уу.</p>
+    <div class="cta-btns">
+      <a href="#contact" class="btn-w">Санал хүсэлт илгээх</a>
+      <a href="tel:+97699000000" class="btn-wo">Утас залгах</a>
+    </div>
+  </div>
+  <div class="cta-r">
+    <div class="cta-info"><span>Шууд утас</span><b>+976 9900-0000</b></div>
+    <div class="cta-info"><span>Цахим шуудан</span><b>info@nrbc.mn</b></div>
+    <div class="cta-info"><span>Хаяг</span><b>Улаанбаатар, СБД</b></div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="fg">
+    <div>
+      <div class="flogo">
+        <svg width="28" height="28" viewBox="0 0 44 44" fill="none">
+          <circle cx="22" cy="22" r="19" stroke="#1B5FA0" stroke-width="2.5" fill="none"/>
+          <rect x="15.5" y="11" width="5" height="21" rx="1" fill="#1B5FA0"/>
+          <rect x="23" y="15" width="5" height="17" rx="1" fill="#C89A2A"/>
+          <path d="M13 33 Q22 27 31 33" stroke="#1B5FA0" stroke-width="2" fill="none" stroke-linecap="round"/>
+        </svg>
+        <b>National Road Bridge<br>Construction ХХК</b>
+      </div>
+      <p class="fdesc">Монгол улсын замын дэд бүтцийг бүтээж буй тэргүүлэх инженерийн компани. 1999 оноос.</p>
+    </div>
+    <div>
+      <h5>Компани</h5>
+      <ul>
+        <li><a href="#">Бидний тухай</a></li>
+        <li><a href="#">Удирдлага</a></li>
+        <li><a href="#">Карьер</a></li>
+        <li><a href="#">Мэдээ</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Үйлчилгээ</h5>
+      <ul>
+        <li><a href="#services">Зам барилга</a></li>
+        <li><a href="#services">Замын засвар</a></li>
+        <li><a href="#services">Гүүр барилга</a></li>
+        <li><a href="#services">Асфальт хийц</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Холбоо барих</h5>
+      <ul>
+        <li><a href="tel:+97699000000">+976 9900-0000</a></li>
+        <li><a href="mailto:info@nrbc.mn">info@nrbc.mn</a></li>
+        <li><a href="#contact">Улаанбаатар, СБД</a></li>
+        <li><a href="#contact">Да–Баа 09–18</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="fbot">
+    <p>© 2024 National Road Bridge Construction ХХК. Бүх эрх хуулиар хамгаалагдсан.</p>
+    <p>Зам · Гүүр · Барилга</p>
+  </div>
+</footer>
+
+<script>
+function handleSubmit(e) {
+  e.preventDefault();
+  var msg = document.getElementById('form-msg');
+  msg.style.display = 'block';
+  msg.textContent = '✓ Таны санал хүсэлтийг хүлээн авлаа. Удахгүй холбогдох болно.';
+  e.target.reset();
+}
+</script>
+</body>
+</html>
